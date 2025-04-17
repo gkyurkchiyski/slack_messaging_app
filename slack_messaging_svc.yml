@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slack-message-svc
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: slack-message-svc
+  template:
+    metadata:
+      labels:
+        app: slack-message-svc
+    spec:
+      containers:
+        - name: slack-message-svc
+          image: tiangolo/uwsgi-nginx-flask:python3.8
+          ports:
+            - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: slack-message-svc
+spec:
+  selector:
+    app: slack-message-svc
+  ports:
+    - name: http
+      port: 5000
+      targetPort: 5000
+      nodePort: 30081
+  type: NodePort
