@@ -1,6 +1,6 @@
 import requests
 import sys
-import getport
+import getopt
 
 # Send Slack Message Using Slack API
 
