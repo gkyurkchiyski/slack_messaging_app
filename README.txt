@@ -1,5 +1,7 @@
-Flask application that uses Python slack_sdk. The application has a route called send_message that
-will invoke a handler function that sends a message recieved by the client in JSON format to a designated
-channel. After that I containerized that applicaion using a Dockerfile and then I created a Kubernetes deployment 
-and Kubernetes service based on the Docker image. Then I deployed that service to a Kubernetes cluster.
-I also created some unit tests for the service.
+Flask-based web application that integrates with Slack using the python-slack-sdk. The application exposes a /send_message route that accepts JSON payloads from clients and forwards the message to a designated Slack channel through the Slack API.
+
+The application was containerized using Docker, and a Kubernetes deployment and service were created to orchestrate and expose the application within a Kubernetes cluster. The service was successfully deployed and tested in the cluster environment.
+
+To ensure reliability and correctness, I also implemented a set of unit tests to validate the message handling logic and Slack API interactions.
+
+Key Technologies: Python, Flask, Slack SDK, Docker, Kubernetes (Deployment, Service), Unit Testing (pytest).
